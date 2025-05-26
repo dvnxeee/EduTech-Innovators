@@ -1,0 +1,124 @@
+/* Fuente moderna y legible */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Estilo general del cuerpo */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    color: #222;
+    margin: 0;
+    padding: 30px 0;
+}
+
+/* Contenedor principal centrado con fondo blanco */
+.contenedor-principal {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Fila superior del título */
+.fila.encabezado {
+    margin-bottom: 1.5rem;
+}
+
+/* Centrado del título */
+.columna.centrado {
+    text-align: center;
+}
+
+/* Estilo del título */
+.titulo-lista {
+    color: #333;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* Estilo de la tabla */
+.tabla-usuarios {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+}
+
+/* Encabezado de la tabla */
+.tabla-usuarios thead tr {
+    background-color: #2c3e50;
+    color: white;
+    font-weight: 700;
+}
+
+/* Celdas de tabla */
+.tabla-usuarios th,
+.tabla-usuarios td {
+    padding: 12px 15px;
+    font-size: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Hover en filas */
+.tabla-usuarios tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Botón Editar */
+.boton-editar {
+    background-color: #2980b9;
+    color: white;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.boton-eliminar {
+    background-color: #c0392b; /* Rojo oscuro */
+    color: white;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.boton-eliminar:hover {
+    background-color: #e74c3c; /* Rojo más claro al pasar el mouse */
+}
+
+.boton-editar:hover {
+    background-color: #1f618d;
+}
+
+/* Contenedor del botón Crear */
+.contenedor-crear {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Botón Crear Usuario */
+.boton-crear {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.boton-crear:hover {
+    background-color: #1e8449;
+}

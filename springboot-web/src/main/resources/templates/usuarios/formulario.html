@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de Usuario</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/formulario.css}" />
+</head>
+<body>
+    <div class="contenedor">
+
+        <!-- Título dinámico: cambia si se crea o edita -->
+        <h2 th:text="${usuario.id == null} ? 'Crear Usuario' : 'Editar Usuario'"></h2>
+
+        <!-- Formulario de creación o edición -->
+        <form th:action="@{${usuario.id == null} ? '/usuarios/crear' : '/usuarios/editar/' + ${usuario.id}}"
+              th:object="${usuario}" method="post">
+
+            <!-- Campo: Nombre -->
+            <div class="campo-formulario">
+                <label for="nombre" class="etiqueta">Nombre</label>
+                <input type="text" th:field="*{nombre}" class="entrada" required />
+            </div>
+
+            <!-- Campo: Apellido -->
+            <div class="campo-formulario">
+                <label for="apellido" class="etiqueta">Apellido</label>
+                <input type="text" th:field="*{apellido}" class="entrada" required />
+            </div>
+
+            <!-- Campo: Correo -->
+            <div class="campo-formulario">
+                <label for="correo" class="etiqueta">Correo</label>
+                <input type="email" th:field="*{correo}" class="entrada" required />
+            </div>
+
+            <!-- Campo: Contraseña -->
+            <div class="campo-formulario">
+                <label for="contrasenna" class="etiqueta">Contraseña</label>
+                <input type="password" th:field="*{contrasenna}" class="entrada"
+                       id="contrasenna" placeholder="Dejar vacío si no deseas cambiarla" />
+            </div>
+
+            <!-- Campo: Rol -->
+            <div class="campo-formulario">
+                <label for="rol" class="etiqueta">Rol</label>
+                <input type="text" th:field="*{rol}" class="entrada" required />
+            </div>
+
+            <!-- Campo: Estado (solo visible si se edita un usuario existente) -->
+            <div class="campo-formulario" th:if="${usuario.id != null}">
+                <label for="activado" class="etiqueta">Estado</label>
+                <select th:field="*{activado}" class="entrada">
+                    <option th:value="true">Activo</option>
+                    <option th:value="false">Inactivo</option>
+                </select>
+            </div>
+
+            <!-- Botones de acción -->
+            <div class="botones-formulario">
+                <a href="/usuarios/lista" class="boton-cancelar">Cancelar</a>
+                <button type="submit" class="boton-guardar">Guardar</button>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>

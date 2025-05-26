@@ -1,13 +1,13 @@
-package com.edutech.contenido_educativo;
+package com.edutech.Soporte;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ContenidoEducativoApplication {
+public class SoporteApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ContenidoEducativoApplication.class, args);
+		SpringApplication.run(SoporteApplication.class, args);
 	}
 
 }

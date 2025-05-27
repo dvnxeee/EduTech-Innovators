@@ -75,6 +75,21 @@ spring.jpa.hibernate.ddl-auto=update
 ## 🧪 Pruebas
 
 Para ejecutar los tests:
+
+Usuarios
+Vista: usuarios/lista
+Crud: api/usuarios
+
+Cursos
+Vista: vista/cursos
+Crud: api/cursos
+
+Soporte
+Vista: tickets/nuevo
+Crud: api/soporte
+
+https://1024-186-11-49-210.ngrok-free.app
+
 ```bash
 mvn test
 ```

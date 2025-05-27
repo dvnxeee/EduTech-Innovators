@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Usuarios</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/lista.css}" />
+</head>
+<body>
+    <div class="contenedor-principal">
+
+        <!-- Encabezado centrado -->
+        <div class="fila encabezado">
+            <div class="columna centrado">
+                <h2 class="titulo-lista">Lista de Usuarios</h2>
+            </div>
+        </div>
+
+        <!-- Tabla de usuarios -->
+        <table class="tabla-usuarios">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Rol</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="usuario : ${usuarios}">
+                    <td th:text="${usuario.id}"></td>
+                    <td th:text="${usuario.nombre}"></td>
+                    <td th:text="${usuario.apellido}"></td>
+                    <td th:text="${usuario.correo}"></td>
+                    <td th:text="${usuario.rol}"></td>
+                    <td th:text="${usuario.estado}"></td>
+                    <td>
+                        <a th:href="@{'/usuarios/form/' + ${usuario.id}}" class="boton-editar">Editar</a>
+                        <form th:action="@{'/usuarios/eliminar/' + ${usuario.id}}" method="post" style="display:inline;">
+                            <button type="submit" class="boton-eliminar" onclick="return confirm('¿Estás seguro que quieres eliminar este usuario?');">
+                                Eliminar
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Botón de creación -->
+        <div class="contenedor-crear">
+            <a th:href="@{/usuarios/form}" class="boton-crear">Crear Usuario</a>
+        </div>
+
+    </div>
+</body>
+</html>

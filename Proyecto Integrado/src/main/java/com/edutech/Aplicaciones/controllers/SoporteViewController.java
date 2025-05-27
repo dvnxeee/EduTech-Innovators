@@ -1,12 +1,13 @@
-package com.edutech.Soporte.controllers;
+package com.edutech.Aplicaciones.controllers;
 
-import com.edutech.Soporte.entities.Ticket;
-import com.edutech.Soporte.services.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.edutech.Aplicaciones.entities.Ticket;
+import com.edutech.Aplicaciones.services.TicketService;
 
 import java.util.List;
 import java.util.Optional;

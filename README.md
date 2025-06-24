@@ -76,19 +76,45 @@ spring.jpa.hibernate.ddl-auto=update
 
 Para ejecutar los tests:
 
-Usuarios
-Vista: usuarios/lista
-Crud: api/usuarios
+API de Administración (API-Administracion)
+Base URL: /api/permisos-usuarios
 
-Cursos
-Vista: vista/cursos
-Crud: api/cursos
+Método	Path	Descripción
+GET	/api/permisos-usuarios	Listar todos los permisos
+GET	/api/permisos-usuarios/usuario/{usuarioId}	Listar permisos por usuarioId
+GET	/api/permisos-usuarios/{id}	Obtener un permiso por ID
+POST	/api/permisos-usuarios	Crear un nuevo permiso
+PUT	/api/permisos-usuarios/{id}	Actualizar un permiso existente
+DELETE	/api/permisos-usuarios/{id}	Eliminar un permiso
+API de Soporte (API-Soporte)
+Base URL: /api/soporte
 
-Soporte
-Vista: tickets/nuevo
-Crud: api/soporte
+Método	Path	Descripción
+GET	/api/soporte	Listar todos los tickets
+GET	/api/soporte/{id}	Obtener un ticket por ID
+POST	/api/soporte	Crear un nuevo ticket
+PUT	/api/soporte/{id}	Actualizar un ticket
+DELETE	/api/soporte/{id}	Eliminar un ticket
+API de Usuarios (API-Usuarios)
+Base URL: /api/usuarios
 
-https://1024-186-11-49-210.ngrok-free.app
+Método	Path	Descripción
+GET	/api/usuarios	Listar todos los usuarios
+GET	/api/usuarios/activos	Listar usuarios activos
+GET	/api/usuarios/{id}	Obtener un usuario por ID
+POST	/api/usuarios	Crear un nuevo usuario
+PUT	/api/usuarios/{id}	Actualizar un usuario
+DELETE	/api/usuarios/{id}	Eliminar un usuario
+API de Cursos (API-cursos)
+Base URL: /api/cursos
+
+Método	Path	Descripción
+GET	/api/cursos	Listar todos los cursos
+GET	/api/cursos/{id}	Obtener un curso por ID
+POST	/api/cursos	Crear un nuevo curso
+PUT	/api/cursos/{id}	Actualizar un curso
+DELETE	/api/cursos/{id}	Eliminar un curso
+
 
 ```bash
 mvn test

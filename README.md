@@ -182,6 +182,19 @@ PUT /{id} — Actualizar usuario
 
 DELETE /{id} — Eliminar usuario
 
+📄 API - Contenidos (ContenidoRestController)
+Ruta base: /api/documentado/contenidos
+
+GET / — Listar todos los contenidos
+
+GET /{id} — Obtener contenido por ID
+
+POST / — Crear nuevo contenido
+
+PUT /{id} — Actualizar contenido
+
+DELETE /{id} — Eliminar contenido
+
 
 ```bash
 mvn test

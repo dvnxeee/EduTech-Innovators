@@ -76,44 +76,111 @@ spring.jpa.hibernate.ddl-auto=update
 
 Para ejecutar los tests:
 
-API de Administración (API-Administracion)
-Base URL: /api/permisos-usuarios
+📡 Endpoints REST por API
+🔐 API - Administración (AdmiRestController)
+Ruta base: /api/permisos-usuarios
 
-Método	Path	Descripción
-GET	/api/permisos-usuarios	Listar todos los permisos
-GET	/api/permisos-usuarios/usuario/{usuarioId}	Listar permisos por usuarioId
-GET	/api/permisos-usuarios/{id}	Obtener un permiso por ID
-POST	/api/permisos-usuarios	Crear un nuevo permiso
-PUT	/api/permisos-usuarios/{id}	Actualizar un permiso existente
-DELETE	/api/permisos-usuarios/{id}	Eliminar un permiso
-API de Soporte (API-Soporte)
-Base URL: /api/soporte
+GET / — Listar todos los permisos
 
-Método	Path	Descripción
-GET	/api/soporte	Listar todos los tickets
-GET	/api/soporte/{id}	Obtener un ticket por ID
-POST	/api/soporte	Crear un nuevo ticket
-PUT	/api/soporte/{id}	Actualizar un ticket
-DELETE	/api/soporte/{id}	Eliminar un ticket
-API de Usuarios (API-Usuarios)
-Base URL: /api/usuarios
+GET /usuario/{usuarioId} — Listar permisos por usuario
 
-Método	Path	Descripción
-GET	/api/usuarios	Listar todos los usuarios
-GET	/api/usuarios/activos	Listar usuarios activos
-GET	/api/usuarios/{id}	Obtener un usuario por ID
-POST	/api/usuarios	Crear un nuevo usuario
-PUT	/api/usuarios/{id}	Actualizar un usuario
-DELETE	/api/usuarios/{id}	Eliminar un usuario
-API de Cursos (API-cursos)
-Base URL: /api/cursos
+GET /{id} — Obtener permiso por ID
 
-Método	Path	Descripción
-GET	/api/cursos	Listar todos los cursos
-GET	/api/cursos/{id}	Obtener un curso por ID
-POST	/api/cursos	Crear un nuevo curso
-PUT	/api/cursos/{id}	Actualizar un curso
-DELETE	/api/cursos/{id}	Eliminar un curso
+POST / — Crear nuevo permiso
+
+PUT /{id} — Actualizar permiso existente
+
+DELETE /{id} — Eliminar permiso
+
+📚 API - Cursos (CursoController)
+Ruta base: /api/cursos
+
+GET / — Listar cursos
+
+GET /{id} — Obtener curso por ID
+
+POST / — Crear curso
+
+PUT /{id} — Actualizar curso
+
+DELETE /{id} — Eliminar curso
+
+📝 API - Evaluación y Seguimiento
+EvaluacionController (/api/evaluaciones)
+
+GET /
+
+GET /{id}
+
+POST /
+
+PUT /{id}
+
+DELETE /{id}
+
+PreguntaController (/api/preguntas)
+
+GET /
+
+GET /{id}
+
+POST /
+
+PUT /{id}
+
+DELETE /{id}
+
+ProgresoEstudianteController (/api/progreso-estudiante)
+
+GET /
+
+GET /{id}
+
+POST /
+
+PUT /{id}
+
+DELETE /{id}
+
+RespuestaEstudianteController (/api/respuestas-estudiante)
+
+GET /
+
+GET /{id}
+
+POST /
+
+PUT /{id}
+
+DELETE /{id}
+
+🛠️ API - Soporte (TicketController)
+Ruta base: /api/soporte
+
+GET / — Listar tickets
+
+GET /{id} — Obtener ticket por ID
+
+POST / — Crear nuevo ticket
+
+PUT /{id} — Editar ticket
+
+DELETE /{id} — Eliminar ticket
+
+👤 API - Usuarios (UsuarioRestController)
+Ruta base: /api/usuarios
+
+GET / — Listar usuarios
+
+GET /activos — Listar usuarios activos
+
+GET /{id} — Obtener usuario por ID
+
+POST / — Crear usuario
+
+PUT /{id} — Actualizar usuario
+
+DELETE /{id} — Eliminar usuario
 
 
 ```bash

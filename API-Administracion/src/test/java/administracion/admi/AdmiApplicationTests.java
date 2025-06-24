@@ -1,10 +1,10 @@
-package com.edutech.contenido_educativo;
+package administracion.admi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ContenidoEducativoApplicationTests {
+class AdmiApplicationTests {
 
 	@Test
 	void contextLoads() {

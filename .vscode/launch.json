@@ -9,6 +9,26 @@
             "projectName": "springboot-web",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-AdmiApplication<admi>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "administracion.admi.AdmiApplication",
+            "projectName": "admi",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SoporteApplication<soporte>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.edutech.Soporte.SoporteApplication",
+            "projectName": "soporte",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }

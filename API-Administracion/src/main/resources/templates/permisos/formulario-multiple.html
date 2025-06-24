@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Asignar Múltiples Permisos</title>
+    <meta charset="UTF-8" />
+    <style>
+        body { background: linear-gradient(135deg, #ffb347 0%, #43cea2 100%); font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; }
+        .contenedor { background: #fff; max-width: 440px; margin: 40px auto; border-radius: 18px; box-shadow: 0 8px 32px rgba(24,90,157,0.18); padding: 32px 28px 24px 28px; }
+        h2 { text-align: center; color: #185a9d; margin-bottom: 24px; letter-spacing: 1px; }
+        .campo-formulario { margin-bottom: 18px; }
+        .etiqueta { display: block; margin-bottom: 6px; color: #185a9d; font-weight: 600; }
+        .entrada, select[multiple] { width: 100%; padding: 10px 12px; border: 1px solid #43cea2; border-radius: 7px; font-size: 1rem; background: #f8fafd; transition: border 0.2s; }
+        .entrada:focus, select[multiple]:focus { border-color: #185a9d; outline: none; }
+        .error { background: #ffdddd; color: #d8000c; border: 1px solid #d8000c; border-radius: 6px; padding: 10px; margin-bottom: 18px; text-align: center; }
+        .botones-formulario { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; }
+        .boton-cancelar, .boton-guardar { padding: 10px 22px; border: none; border-radius: 7px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.2s, color 0.2s; text-decoration: none; }
+        .boton-cancelar { background: #e74c3c; color: #fff; }
+        .boton-cancelar:hover { background: #c0392b; }
+        .boton-guardar { background: #43cea2; color: #fff; }
+        .boton-guardar:hover { background: #185a9d; }
+        .checkbox-group { display: flex; flex-wrap: wrap; gap: 10px; }
+        .checkbox-group label { background: #f3f8fa; border-radius: 6px; padding: 6px 12px; cursor: pointer; border: 1px solid #43cea2; margin-bottom: 4px; }
+        .checkbox-group input[type="checkbox"] { margin-right: 6px; }
+        @media (max-width: 500px) { .contenedor { padding: 18px 6px; } }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h2>Asignar Múltiples Permisos</h2>
+        <div th:if="${error}" class="error" th:text="${error}"></div>
+        <form th:action="@{/permisos/crear-multiple}" method="post">
+            <div class="campo-formulario">
+                <label class="etiqueta">ID Usuario</label>
+                <input type="number" name="usuarioId" class="entrada" required />
+            </div>
+            <div class="campo-formulario">
+                <label class="etiqueta">Tipo de Usuario</label>
+                <select name="tipoUsuario" class="entrada" required>
+                    <option value="">Seleccione...</option>
+                    <option th:each="tipo : ${tiposUsuario}" th:value="${tipo}" th:text="${tipo}"></option>
+                </select>
+            </div>
+            <div class="campo-formulario">
+                <label class="etiqueta">Permisos</label>
+                <div class="checkbox-group">
+                    <label th:each="p : ${permisos}">
+                        <input type="checkbox" name="permisosSeleccionados" th:value="${p}" />
+                        <span th:text="${p}"></span>
+                    </label>
+                </div>
+                <small>Puedes seleccionar varios permisos.</small>
+            </div>
+            <div class="botones-formulario">
+                <a href="/permisos/lista" class="boton-cancelar">Cancelar</a>
+                <button type="submit" class="boton-guardar">Guardar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

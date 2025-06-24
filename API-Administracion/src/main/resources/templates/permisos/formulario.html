@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${permiso.id == null} ? 'Crear Permiso' : 'Editar Permiso'"></title>
+    <meta charset="UTF-8" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .contenedor {
+            background: #fff;
+            max-width: 420px;
+            margin: 40px auto;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(24,90,157,0.18);
+            padding: 32px 28px 24px 28px;
+        }
+        h2 {
+            text-align: center;
+            color: #185a9d;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+        }
+        .campo-formulario {
+            margin-bottom: 18px;
+        }
+        .etiqueta {
+            display: block;
+            margin-bottom: 6px;
+            color: #185a9d;
+            font-weight: 600;
+        }
+        .entrada {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #43cea2;
+            border-radius: 7px;
+            font-size: 1rem;
+            background: #f8fafd;
+            transition: border 0.2s;
+        }
+        .entrada:focus {
+            border-color: #185a9d;
+            outline: none;
+        }
+        .error {
+            background: #ffdddd;
+            color: #d8000c;
+            border: 1px solid #d8000c;
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        .botones-formulario {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 18px;
+        }
+        .boton-cancelar, .boton-guardar {
+            padding: 10px 22px;
+            border: none;
+            border-radius: 7px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            text-decoration: none;
+        }
+        .boton-cancelar {
+            background: #e74c3c;
+            color: #fff;
+        }
+        .boton-cancelar:hover {
+            background: #c0392b;
+        }
+        .boton-guardar {
+            background: #43cea2;
+            color: #fff;
+        }
+        .boton-guardar:hover {
+            background: #185a9d;
+        }
+        @media (max-width: 500px) {
+            .contenedor {
+                padding: 18px 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h2 th:text="${permiso.id == null} ? 'Crear Permiso' : 'Editar Permiso'"></h2>
+        <div th:if="${error}" class="error" th:text="${error}"></div>
+        <form th:action="@{${permiso.id == null} ? '/permisos/crear' : '/permisos/editar/' + ${permiso.id}}" th:object="${permiso}" method="post">
+            <div class="campo-formulario">
+                <label for="usuarioId" class="etiqueta">ID Usuario</label>
+                <input type="number" th:field="*{usuarioId}" class="entrada" required />
+            </div>
+            <div class="campo-formulario">
+                <label for="tipoUsuario" class="etiqueta">Tipo de Usuario</label>
+                <select th:field="*{tipoUsuario}" class="entrada" required>
+                    <option value="">Seleccione...</option>
+                    <option th:each="tipo : ${tiposUsuario}" th:value="${tipo}" th:text="${tipo}"></option>
+                </select>
+            </div>
+            <div class="campo-formulario">
+                <label for="permiso" class="etiqueta">Permiso</label>
+                <select th:field="*{permiso}" class="entrada" required>
+                    <option value="">Seleccione...</option>
+                    <option th:each="p : ${permisos}" th:value="${p}" th:text="${p}"></option>
+                </select>
+            </div>
+            <div class="botones-formulario">
+                <a href="/permisos/lista" class="boton-cancelar">Cancelar</a>
+                <button type="submit" class="boton-guardar">Guardar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

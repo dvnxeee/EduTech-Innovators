@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Permisos</title>
+    <meta charset="UTF-8" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .contenedor-principal {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(24,90,157,0.18);
+            padding: 32px 24px 24px 24px;
+        }
+        .titulo-lista {
+            color: #185a9d;
+            text-align: center;
+            margin-bottom: 28px;
+            letter-spacing: 1px;
+        }
+        .tabla-usuarios {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+        }
+        .tabla-usuarios th, .tabla-usuarios td {
+            padding: 12px 10px;
+            text-align: center;
+        }
+        .tabla-usuarios th {
+            background: #185a9d;
+            color: #fff;
+            font-weight: 700;
+        }
+        .tabla-usuarios tr:nth-child(even) {
+            background: #f3f8fa;
+        }
+        .tabla-usuarios tr:hover {
+            background: #e0f7fa;
+        }
+        .boton-editar, .boton-eliminar, .boton-crear {
+            padding: 8px 18px;
+            border: none;
+            border-radius: 7px;
+            font-size: 0.98rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            margin: 0 2px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .boton-editar {
+            background: #43cea2;
+            color: #fff;
+        }
+        .boton-editar:hover {
+            background: #185a9d;
+        }
+        .boton-eliminar {
+            background: #e74c3c;
+            color: #fff;
+        }
+        .boton-eliminar:hover {
+            background: #c0392b;
+        }
+        .boton-crear {
+            background: #ffb347;
+            color: #fff;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .boton-crear:hover {
+            background: #ff8008;
+        }
+        .contenedor-crear {
+            text-align: right;
+        }
+        @media (max-width: 700px) {
+            .contenedor-principal {
+                padding: 12px 2px;
+            }
+            .tabla-usuarios th, .tabla-usuarios td {
+                padding: 8px 2px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor-principal">
+        <h2 class="titulo-lista">Lista de Permisos de Usuarios</h2>
+        <table class="tabla-usuarios">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>ID Usuario</th>
+                    <th>Tipo Usuario</th>
+                    <th>Permiso</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="permiso : ${permisos}">
+                    <td th:text="${permiso.id}"></td>
+                    <td th:text="${permiso.usuarioId}"></td>
+                    <td th:text="${permiso.tipoUsuario}"></td>
+                    <td th:text="${permiso.permiso}"></td>
+                    <td>
+                        <a th:href="@{'/permisos/form/' + ${permiso.id}}" class="boton-editar">Editar</a>
+                        <form th:action="@{'/permisos/eliminar/' + ${permiso.id}}" method="post" style="display:inline;">
+                            <button type="submit" class="boton-eliminar" onclick="return confirm('¿Eliminar este permiso?');">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="contenedor-crear">
+            <a th:href="@{/permisos/form}" class="boton-crear">Crear Permiso</a>
+            <a th:href="@{/permisos/form-multiple}" class="boton-crear" style="background:#43cea2;">Asignar Múltiples Permisos</a>
+        </div>
+    </div>
+</body>
+</html>
